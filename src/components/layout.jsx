@@ -24,11 +24,11 @@ export default function Layout({ children }) {
       <header className="bg-primary text-primary-foreground px-6 py-4 shadow-md flex justify-between items-center">
         <h1 className="text-lg font-bold">{t("menuTitle")}</h1>
 
-        {/*Version Desktop*/}
+        {/* Versión Desktop */}
         <nav className="hidden md:flex space-x-4 items-center">
           <Link to="/">{t("home")}</Link>
 
-          {/*Selector de idioma*/}
+          {/* Selector de idioma */}
           <select
             className="ml-4 px-2 py-1 rounded bg-background text-foreground"
             onChange={(e) => changeLanguage(e.target.value)}
@@ -40,7 +40,7 @@ export default function Layout({ children }) {
           </select>
         </nav>
 
-        {/*Menu pequeño*/}
+        {/* Menu pequeño */}
         <button
           className="md:hidden bg-primary-foreground text-primary px-2 py-1 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -49,7 +49,7 @@ export default function Layout({ children }) {
         </button>
       </header>
 
-      {/*Versión móvil */}
+      {/* Versión móvil */}
       {menuOpen && (
         <nav className="flex flex-col md:hidden bg-primary text-primary-foreground px-6 py-2 space-y-2 transition-all duration-300 ease-in-out">
           <Link to="/" className="hover:underline" onClick={() => setMenuOpen(false)}>
@@ -71,8 +71,26 @@ export default function Layout({ children }) {
           </select>
         </nav>
       )}
-      <main className="flex-1 p-6 bg-background">
+
+      {/* Main con degradado dinámico */}
+      <main
+        className="flex-1 p-6"
+        style={{
+          background: "linear-gradient(180deg, #e0e0e0, #fdf6f0, #ffffff) 0% 0% / 100% 300%",
+          animation: "gradientMove 15s ease infinite"
+        }}
+      >
         {children}
+
+        <style>
+          {`
+            @keyframes gradientMove {
+              0% { background-position: 0% 0%; }
+              50% { background-position: 0% 100%; }
+              100% { background-position: 0% 0%; }
+            }
+          `}
+        </style>
       </main>
     </div>
   );

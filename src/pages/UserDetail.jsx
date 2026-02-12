@@ -130,7 +130,9 @@ export default function UserDetails() {
         <div className="flex justify-end animate-fadeInUp">
           <button
             onClick={() => navigate(`/edit/${id}`)}
-            className="px-4 py-2 bg-yellow-500 text-white rounded"
+            className="px-4 py-2 bg-yellow-500 text-white rounded shadow-md
+                      hover:bg-yellow-600 hover:shadow-xl
+                      transition-all duration-300"
           >
             {t("editUser")}
           </button>

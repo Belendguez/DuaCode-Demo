@@ -55,20 +55,28 @@ export default function ImageManager({ images = [], onChange }) {
     onChange(updated);
   };
 
+  const buttonStyle =
+    "px-4 py-2 rounded transition active:scale-95 active:brightness-90 cursor-pointer";
+
+  const smallButtonStyle =
+    "px-2 py-1 rounded transition active:scale-95 active:brightness-90 cursor-pointer";
+
   return (
     <div>
-      <button
-        type="button"
-        onClick={openModal}
-        className="px-4 py-2 bg-blue-500 text-white rounded mb-2"
-      >
-        {t("ImagenAdmin")}
-      </button>
+      <div className="animate-fadeInUp">
+        <button
+          type="button"
+          onClick={openModal}
+          className={`${buttonStyle} bg-blue-500 text-white hover:bg-blue-600 mb-2`}
+        >
+          {t("ImagenAdmin")}
+        </button>
+      </div>
 
       {modalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg w-full max-w-lg">
-            <h2 className="text-xl font-bold mb-4">{t("userImages")}</h2>
+          <div className="bg-white p-6 rounded-lg w-full max-w-lg max-h-[90vh] overflow-y-auto">
+            <h2 className="text-xl font-bold mb-4 text-center">{t("userImages")}</h2>
 
             {/* Añadir URL */}
             <div className="flex gap-2 mb-4">
@@ -82,7 +90,7 @@ export default function ImageManager({ images = [], onChange }) {
               <button
                 type="button"
                 onClick={addImage}
-                className="px-4 py-2 bg-green-500 text-white rounded"
+                className={`${buttonStyle} bg-green-500 text-white hover:bg-green-600`}
               >
                 {t("add")}
               </button>
@@ -103,7 +111,7 @@ export default function ImageManager({ images = [], onChange }) {
                         type="button"
                         onClick={() => moveUp(i)}
                         disabled={i === 0}
-                        className="px-2 py-1 bg-gray-200 rounded disabled:opacity-50"
+                        className={`${smallButtonStyle} bg-gray-200 disabled:opacity-50 hover:bg-gray-300`}
                       >
                         ↑
                       </button>
@@ -111,14 +119,14 @@ export default function ImageManager({ images = [], onChange }) {
                         type="button"
                         onClick={() => moveDown(i)}
                         disabled={i === localImages.length - 1}
-                        className="px-2 py-1 bg-gray-200 rounded disabled:opacity-50"
+                        className={`${smallButtonStyle} bg-gray-200 disabled:opacity-50 hover:bg-gray-300`}
                       >
                         ↓
                       </button>
                       <button
                         type="button"
                         onClick={() => removeImage(i)}
-                        className="px-2 py-1 bg-red-500 text-white rounded"
+                        className={`${smallButtonStyle} bg-red-500 text-white hover:bg-red-600`}
                       >
                         ✕
                       </button>
@@ -132,7 +140,7 @@ export default function ImageManager({ images = [], onChange }) {
               <button
                 type="button"
                 onClick={closeModal}
-                className="px-4 py-2 bg-gray-300 rounded"
+                className={`${buttonStyle} bg-gray-300 hover:bg-gray-400`}
               >
                 {t("saveChanges")}
               </button>
