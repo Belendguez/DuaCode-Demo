@@ -32,7 +32,7 @@
   "company":"Empresa",
   "website": "Sitio web",
   "bio": "Biografía",
-  "userImages": "Imaxes",
+  "userImages": "Galería",
   "nameRequired": "Erro: O nome require, como mínimo, dúas letras",
   "emailInvalid": "Erro: O email ten un formato inválido",
   "phoneInvalid": "Erro: O teléfono ten un formato inválido",
@@ -41,5 +41,6 @@
   "companyData" : "Información da Empresa",
   "novelties" : "Novidades",
   "ImagenAdmin" : "Administrar Imaxes",
-  "add": "Engadir"
+  "add": "Engadir",
+  "searchByName": "Buscar por nome"
 }

@@ -1,3 +1,14 @@
+// =============================
+// ImageManager.JSX
+// =============================
+// Componente que controla el la modal para añadir imagenes o editar su orden al Editar un Usuario.
+// Las imagenes siempre tienen que ser por URL
+// Funciones:
+//   - Añadir Imagenes
+//   - Cambiar el orden de las Imagenes
+//   - Eliminar Imagenes
+// =============================
+
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -7,7 +18,6 @@ export default function ImageManager({ images = [], onChange }) {
   const [localImages, setLocalImages] = useState(images);
   const { t } = useTranslation();
 
-  // 🔹 Sincronizar con props externas
   useEffect(() => {
     setLocalImages(images);
   }, [images]);

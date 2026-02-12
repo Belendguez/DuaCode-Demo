@@ -1,3 +1,16 @@
+// =============================
+// USERLIST.JSX
+// =============================
+// Pantalla que refleja la lista de usuarios.
+// Funciones:
+//   - Mostrar Usuario (Avatar, Nombre y Correo)
+//   - Buscar Usuario (Por Nombre)
+//   - Ordenar Usuarios (Por Orden Alfabetico Ascendente o Descendente)
+//   - Editar Usuarios
+//   - Eliminar Usuarios
+//   - Paginacion (4 Usuarios por pagina) + Navegacion de páginas
+// =============================
+
 import { useEffect, useState, useMemo } from "react";
 import { fetchUsers, deleteUser } from "@/services/api";
 import { Link, useNavigate } from "react-router-dom";
@@ -48,7 +61,7 @@ export default function UsersList() {
     }
   };
 
-  // 🔹 Filtrar y ordenar usuarios
+
   const filteredUsers = useMemo(() => {
     let filtered = users.filter((u) =>
       u.name.toLowerCase().includes(search.toLowerCase())
@@ -59,7 +72,6 @@ export default function UsersList() {
     return filtered;
   }, [users, search, sortAsc]);
 
-  // 🔹 Paginación
   const totalPages = Math.ceil(filteredUsers.length / USERS_PER_PAGE);
   const paginatedUsers = filteredUsers.slice(
     (page - 1) * USERS_PER_PAGE,
@@ -78,7 +90,7 @@ export default function UsersList() {
           {t("createUser")}
         </Link>
 
-        {/* 🔹 Buscador + Orden solo flecha */}
+        {/*Buscador + Orden*/}
         <div className="flex gap-1 md:gap-2 items-center">
           <input
             type="text"
@@ -101,7 +113,7 @@ export default function UsersList() {
       </div>
 
 
-      {/* 🔥 Lista de usuarios */}
+      {/*Lista de usuarios */}
       {loading ? (
         <div className="space-y-4">
           {[...Array(3)].map((_, i) => (
@@ -130,7 +142,7 @@ export default function UsersList() {
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <CardContent className="p-4 flex flex-col sm:flex-row items-center gap-4">
-                    {/* 🔹 Avatar + info clicable */}
+                    {/*Avatar + info*/}
                     <div
                       onClick={() => navigate(`/user/${user._id}`)}
                       className="flex items-center gap-4 flex-1 cursor-pointer transition"
@@ -149,7 +161,7 @@ export default function UsersList() {
                       </div>
                     </div>
 
-                    {/* 🔹 Acciones */}
+                    {/*Acciones*/}
                     <Link
                       to={`/edit/${user._id}`}
                       className="px-3 py-1 rounded text-white transition 
@@ -172,7 +184,7 @@ export default function UsersList() {
           </ul>
           )}
 
-          {/* 🔹 Paginación */}
+          {/*Paginación*/}
           {totalPages > 1 && (
             <div className="flex justify-center items-center gap-2 mt-6">
               <button

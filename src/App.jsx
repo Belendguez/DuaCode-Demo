@@ -12,7 +12,7 @@ export default function App() {
   return (
     <Layout>
       <Routes>
-      <Route path="/" element={<Home />} /> {/* Ahora Home es la página inicial */}
+      <Route path="/" element={<Home />} />
       <Route path="/users" element={<UsersList />} />
       <Route path="/createUser" element={<UserCreater />} />
       <Route path="/user/:id" element={<UserDetails />} />

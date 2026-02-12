@@ -1,4 +1,7 @@
-// server.js
+// =============================
+// SERVER.JS
+// =============================
+//Backend que funciona con MongoDB para hacer las pruebas.
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -6,18 +9,18 @@ import cors from "cors";
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // Parsear JSON
+app.use(express.json());
 
-// 🔹 Conexión a MongoDB Atlas
+//Conexión a MongoDB Atlas. Hardcodeado para que funcione. (No lo editen o no habrá conexión)
 const MONGO_URI =
   "mongodb+srv://xanaUser:UZbV9vvf3K0IowNw@testcluster.iivdn38.mongodb.net/reqres_test?retryWrites=true&w=majority";
 
 mongoose
   .connect(MONGO_URI)
-  .then(() => console.log("✅ MongoDB Atlas connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+  .then(() => console.log("MongoDB Atlas connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
-// 🔹 Modelo de usuario
+// Modelo del Usuario (Información del usuario para usar en el front)
 const UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -37,7 +40,9 @@ const UserSchema = new mongoose.Schema(
 
 const User = mongoose.model("User", UserSchema);
 
-// 🔹 Endpoints CRUD
+// =============================
+// ENDPOINTS CRUD
+// =============================
 
 // Obtener todos los usuarios
 app.get("/users", async (req, res) => {
@@ -92,7 +97,7 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-// 🔹 Servidor escuchando
+// Servidor escuchando
 const PORT = 3000;
 app.listen(PORT, () =>
   console.log(`🚀 Server running on http://localhost:${PORT}`)

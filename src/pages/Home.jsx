@@ -1,3 +1,14 @@
+// =============================
+// HOME.JSX
+// =============================
+// Pantalla de inicio.
+// Funciones:
+//   - Muestra Nombre del Proyecto
+//   - Acceso directo a Crear un Usuario
+//   - Acceso directo a la Lista de Usuarios
+//   - Carousel de novedades
+// =============================
+
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -23,7 +34,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center p-8">
-      {/* Títulos */}
+      {/*Titulos*/}
       <h1 className="text-5xl font-extrabold mt-12 mb-2 text-center">
         {t("projectTitle")}
       </h1>
@@ -31,7 +42,7 @@ export default function Home() {
         {t("byAuthor")}
       </h2>
 
-      {/* Botones */}
+      {/*Acciones*/}
       <div className="flex gap-8 mb-12">
         <button
           className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
@@ -47,7 +58,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Carousel de novedades */}
+      {/*Carousel de novedades*/}
       {users.length > 0 && (
         <>
           <h2 className="text-2xl font-bold mb-4">{t("novelties")}</h2>

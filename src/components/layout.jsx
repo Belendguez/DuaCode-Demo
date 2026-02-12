@@ -1,3 +1,13 @@
+// =============================
+// LAYOUT.JSX
+// =============================
+// Layout que envuelve todas las pantallas
+// Funciones:
+//   - Mostrar Texto (Header)
+//   - Link de retorno a Home
+//   - Menu de Cambio de Lenguaje
+// =============================
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -14,11 +24,11 @@ export default function Layout({ children }) {
       <header className="bg-primary text-primary-foreground px-6 py-4 shadow-md flex justify-between items-center">
         <h1 className="text-lg font-bold">{t("menuTitle")}</h1>
 
-        {/* Menú desktop */}
+        {/*Version Desktop*/}
         <nav className="hidden md:flex space-x-4 items-center">
           <Link to="/">{t("home")}</Link>
 
-          {/* Selector de idioma */}
+          {/*Selector de idioma*/}
           <select
             className="ml-4 px-2 py-1 rounded bg-background text-foreground"
             onChange={(e) => changeLanguage(e.target.value)}
@@ -30,7 +40,7 @@ export default function Layout({ children }) {
           </select>
         </nav>
 
-        {/* Botón hamburguesa móvil */}
+        {/*Menu pequeño*/}
         <button
           className="md:hidden bg-primary-foreground text-primary px-2 py-1 rounded"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -39,14 +49,11 @@ export default function Layout({ children }) {
         </button>
       </header>
 
-      {/* Menú móvil */}
+      {/*Versión móvil */}
       {menuOpen && (
         <nav className="flex flex-col md:hidden bg-primary text-primary-foreground px-6 py-2 space-y-2 transition-all duration-300 ease-in-out">
           <Link to="/" className="hover:underline" onClick={() => setMenuOpen(false)}>
             {t("home")}
-          </Link>
-          <Link to="/about" className="hover:underline" onClick={() => setMenuOpen(false)}>
-            {t("about")}
           </Link>
 
           {/* Selector de idioma móvil */}
@@ -64,8 +71,6 @@ export default function Layout({ children }) {
           </select>
         </nav>
       )}
-
-      {/* Contenido */}
       <main className="flex-1 p-6 bg-background">
         {children}
       </main>

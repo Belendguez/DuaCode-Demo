@@ -1,4 +1,15 @@
-// UserForm.jsx
+// =============================
+// USERFORM.JSX
+// =============================
+// Permite Editar y añadir los campos extra del usuario.
+// Validaciones:
+//  - Las Imagenes deben ser insertadas mediante una URL válida.
+//  - El nombre debe tener mas de 2 letras
+//  - El Correo debe tener un formato correcto
+//  - La pagina web debe tener un formato válido y existir.
+//  - La fecha de nacimiento no puede ser una fecha a futuro
+// =============================
+
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchUser, updateUser, createUser } from "@/services/api";
@@ -131,7 +142,7 @@ export default function UserForm({ isEdit }) {
           {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
         </div>
 
-        {/* Campos de formulario */}
+        {/*Formulario */}
           {["name", "email", "phone", "city", "website", "company", "bio"].map(
             (field) => (
               <div key={field} className="flex flex-col">
@@ -166,7 +177,7 @@ export default function UserForm({ isEdit }) {
           />
         </div>
 
-        {/* Gestión de imágenes */}
+        {/* Gestor de Imagenes */}
         <ImageManager
           images={form.images}
           onChange={(updated) => setForm((prev) => ({ ...prev, images: updated }))}

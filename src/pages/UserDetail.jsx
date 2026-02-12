@@ -1,4 +1,11 @@
-// src/pages/UserDetails.jsx
+// =============================
+// USERDETAIL.JSX
+// =============================
+// Muestra la informacion extra del usuario.
+// Si algun campo esta vacio se muestra el icono (-)
+// Si no existen imagenes en la galería o biografía no se renderizan.
+// Se puede usar el boton Edit User para acceder a la pantalla de edición
+// =============================
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchUser } from "@/services/api";
@@ -10,7 +17,7 @@ export default function UserDetails() {
   const { t } = useTranslation();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [showSections, setShowSections] = useState([false, false, false, false, false]); // Avatar, Empresa, Bio, Carrusel, Botón
+  const [showSections, setShowSections] = useState([false, false, false, false, false]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +36,7 @@ export default function UserDetails() {
     loadUser();
   }, [id]);
 
-  // Animación escalonada de secciones
+
   useEffect(() => {
     if (!user) return;
     const timers = [];
@@ -40,7 +47,7 @@ export default function UserDetails() {
           next[i] = true;
           return next;
         });
-      }, i * 200); // 200ms entre cada sección, similar al listado de usuarios
+      }, i * 200); 
     });
     return () => timers.forEach((t) => clearTimeout(t));
   }, [user]);
@@ -110,7 +117,7 @@ export default function UserDetails() {
         </div>
       )}
 
-      {/* Carrusel */}
+      {/* Galeria */}
       {images.length > 0 && showSections[3] && (
         <div className="bg-background p-6 rounded-2xl shadow animate-fadeInUp">
           <h2 className="text-xl font-semibold mb-4">{t("userImages")}</h2>
@@ -118,7 +125,7 @@ export default function UserDetails() {
         </div>
       )}
 
-      {/* Botón editar */}
+      {/* Editar */}
       {showSections[4] && (
         <div className="flex justify-end animate-fadeInUp">
           <button

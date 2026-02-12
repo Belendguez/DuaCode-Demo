@@ -32,7 +32,7 @@
   "company":"Company",
   "website": "Website",
   "bio": "Biography",
-  "userImages": "Images",
+  "userImages": "Gallery",
   "nameRequired": "Error: Name is required with at least two letters",
   "emailInvalid": "Error: Email format is invalid",
   "phoneInvalid": "Error: Phone number format is invalid",
@@ -41,5 +41,6 @@
   "companyData" : "Company Information",
   "novelties" : "News",
   "ImagenAdmin" : "Manage Images",
-  "add": "Add"
+  "add": "Add",
+  "searchByName": "Search by name"
 }

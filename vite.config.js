@@ -13,7 +13,6 @@ export default defineConfig({
     },
   },
   server: {
-    // No proxy necesario porque usaremos https://reqres.in directamente
     port: 5173,
   },
 });

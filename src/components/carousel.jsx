@@ -1,3 +1,9 @@
+// =============================
+// Carousel.JSX
+// =============================
+// Componente que controla la Galería.
+// =============================
+
 import { useRef } from "react";
 
 export default function Carousel({ images = [] }) {

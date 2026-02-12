@@ -1,3 +1,10 @@
+// =============================
+// USERCREATE.JSX
+// =============================
+// Crea el Usuario. Solo Nombre y Email.
+// Se le asigna al usuario el avatar por default.
+// =============================
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "@/services/api";

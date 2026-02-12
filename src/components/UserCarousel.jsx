@@ -1,4 +1,13 @@
-// src/components/UserCarousel.jsx
+// =============================
+// ImageManager.JSX
+// =============================
+// Componente el Carousel de Novedades
+// Funciones:
+//   - Muestra el avatar de cada usuario
+//   - Permite avanzar o retroceder en el carousel usando las flechas o los indicadores de posición.
+//   - Al dar click en una de las imagenes, se produce un link a los detalles del usuario.
+// =============================
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +23,7 @@ export default function UserCarousel({ users = [] }) {
 
   return (
     <div className="relative w-full max-w-4xl mx-auto">
-      {/* Imagen principal */}
+      {/*Avatar Usuario*/}
       <div
         className="w-full h-64 md:h-80 rounded-lg overflow-hidden cursor-pointer"
         onClick={() => navigate(`/user/${users[current]._id}`)}
@@ -40,7 +49,7 @@ export default function UserCarousel({ users = [] }) {
         →
       </button>
 
-      {/* Indicadores de usuarios */}
+      {/*Indicadores*/}
       <div className="flex justify-center mt-2 gap-2">
         {users.map((_, i) => (
           <span
