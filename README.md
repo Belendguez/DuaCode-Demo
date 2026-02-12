@@ -25,9 +25,8 @@ Gestión de versiones: Git + GitHub
 
 ## Instalación y ejecución
 
- - Clonar el repositorio:
-
- ```git clone https://github.com/Belendguez/DuaCode-Demo.git```
+Clonar el repositorio:
+```git clone https://github.com/Belendguez/DuaCode-Demo.git```
 
 
 Instalar dependencias:
