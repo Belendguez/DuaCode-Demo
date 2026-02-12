@@ -33,8 +33,10 @@ Instalar dependencias:
 ```npm install```
 
 Crear un .env con las siguientes credenciales:
-```MONGO_URI=mongodb+srv://<user>:<password>@testcluster.iivdn38.mongodb.net/reqres_test?retryWrites=true&w=majority
-PORT=3000```
+```
+MONGO_URI=mongodb+srv://<user>:<password>@testcluster.iivdn38.mongodb.net/reqres_test?retryWrites=true&w=majority
+PORT=3000
+```
 
 Ejecutar la aplicación:
 ```npm run dev```
