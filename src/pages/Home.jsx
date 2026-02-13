@@ -9,7 +9,7 @@ export default function Home() {
   const { t } = useTranslation();
   const [users, setUsers] = useState([]);
 
-  // 👇 control de animaciones
+  // control de animaciones
   const [showSections, setShowSections] = useState([false, false, false]);
 
   useEffect(() => {

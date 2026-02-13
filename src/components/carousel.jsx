@@ -14,7 +14,7 @@ export default function Carousel({ images = [] }) {
   const scrollByWidth = (direction = 1) => {
     if (!containerRef.current) return;
     const container = containerRef.current;
-    const scrollAmount = container.clientWidth * 0.8; // 80% del contenedor
+    const scrollAmount = container.clientWidth * 0.8;
     container.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
   };
 

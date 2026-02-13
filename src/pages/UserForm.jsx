@@ -24,7 +24,6 @@ export default function UserForm({ isEdit }) {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [showSections, setShowSections] = useState([false, false, false, false, false, false]); 
-  // Avatar, campos, fecha, imagenes, botón, etc.
 
   const [form, setForm] = useState({
     name: "",
