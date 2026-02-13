@@ -42,7 +42,6 @@ export default function UserCarousel({ users = [] }) {
   const next = () =>
     setCurrent((prev) => (prev === users.length - 1 ? 0 : prev + 1));
 
-  // 👉 Swipe táctil
   const handleTouchStart = (e) => {
     startX.current = e.touches ? e.touches[0].clientX : e.clientX;
   };
@@ -68,7 +67,7 @@ export default function UserCarousel({ users = [] }) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      {/* SLIDER TRACK */}
+      {/* slider */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{
